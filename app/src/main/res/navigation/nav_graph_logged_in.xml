@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_logged_in"
+    app:startDestination="@id/homeNavigation">
+
+    <navigation
+        android:id="@+id/homeNavigation"
+        app:startDestination="@id/homeFragment">
+
+        <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.example.foodapplication.presentation.screen.home.HomeFragment"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home">
+
+            <action
+                android:id="@+id/toDetailedFragment"
+                app:destination="@+id/detailFragment" />
+
+            <action
+                android:id="@+id/toSearchFragment"
+                app:destination="@+id/searchFragment" />
+
+        </fragment>
+
+        <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.example.foodapplication.presentation.screen.detail.DetailFragment"
+            android:label="fragment_detail"
+            tools:layout="@layout/fragment_detail">
+
+            <argument
+                android:name="id"
+                app:argType="integer" />
+
+        </fragment>
+
+        <fragment
+            android:id="@+id/searchFragment"
+            android:name="com.example.foodapplication.presentation.screen.search.SearchFragment"
+            android:label="fragment_search"
+            tools:layout="@layout/fragment_search">
+
+            <action
+                android:id="@+id/toDetailedFragment"
+                app:destination="@id/detailFragment" />
+
+        </fragment>
+
+    </navigation>
+
+    <navigation
+        android:id="@+id/favouritesNavigation"
+        app:startDestination="@id/favouriteFragment">
+
+        <fragment
+            android:id="@+id/favouriteFragment"
+            android:name="com.example.foodapplication.presentation.screen.favourite.FavouriteFragment"
+            android:label="fragment_favourite"
+            tools:layout="@layout/fragment_favourite">
+
+
+            <action
+                android:id="@+id/favouritesFragment_to_detailsFragment"
+                app:destination="@id/detailFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.example.foodapplication.presentation.screen.detail.DetailFragment"
+            android:label="fragment_detail"
+            tools:layout="@layout/fragment_detail">
+
+            <argument
+                android:name="id"
+                app:argType="integer" />
+
+        </fragment>
+    </navigation>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.foodapplication.presentation.screen.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+</navigation>

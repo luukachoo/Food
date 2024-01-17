@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="backgroundBlack">#121223</color>
+    <color name="orange">#FF7622</color>
+    <color name="tvGrey">#646982</color>
+    <color name="hintGrey">#A0A5BA</color>
+    <color name="editTextColor">#F0F5FA</color>
+    <color name="etTextColorGrey">#32343E</color>
+</resources>

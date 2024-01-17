@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Food Application</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">email</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_in_text">Please sign in to your existing account</string>
+    <string name="password">password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="or">Or</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_text">Please sign up to get started</string>
+    <string name="username">username</string>
+    <string name="retype_password">re-type password</string>
+    <string name="hint_email">example@gmail.com</string>
+    <string name="hint_username">jemali1</string>
+    <string name="hint_password">*******</string>
+    <string name="profile">Profile</string>
+    <string name="log_out">Log Out</string>
+
+
+    <!-- Details Screen -->
+    <string name="extended_ingredients">Extended Ingredients</string>
+    <string name="aisle"><b>Aisle:</b></string>
+    <string name="consistency"><b>Consistency:</b></string>
+    <string name="original"><b>Original:</b></string>
+    <string name="search">Search</string>
+    <string name="favourites">Favourites</string>
+    <string name="home">Home</string>
+</resources>
