@@ -3,7 +3,7 @@ package com.example.foodapplication.presentation.screen.register
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapplication.data.common.Resource
-import com.example.foodapplication.domain.remote.model.UserInfo
+import com.example.foodapplication.data.remote.network.model.UserInfo
 import com.example.foodapplication.domain.remote.use_case.user.UserUseCase
 import com.example.foodapplication.domain.remote.use_case.validator.ValidatorUseCase
 import com.example.foodapplication.presentation.event.register.RegisterFragmentEvents
@@ -38,17 +38,18 @@ class RegisterFragmentViewModel @Inject constructor(
             is RegisterFragmentEvents.Register -> validateForm(
                 event.username,
                 event.email,
-                event.password
+                event.password,
+                event.repeatPassword
             )
 
             is RegisterFragmentEvents.ResetErrorMessage -> updateErrorMessage(null)
         }
     }
 
-    private fun register(username: String, email: String, password: String) =
+    private fun register(username: String, email: String, password: String, userInfo: UserInfo = UserInfo()) =
         viewModelScope.launch {
             _registerState.update { it.copy(isLoading = true) }
-            userUseCase.register(email, password).collect { resource ->
+            userUseCase.register(email, password, userInfo).collect { resource ->
                 when (resource) {
                     is Resource.Success -> {
                         _registerState.update {
@@ -79,7 +80,7 @@ class RegisterFragmentViewModel @Inject constructor(
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
             val userInfo = UserInfo(username, email, password)
-            val databaseReference = FirebaseDatabase.getInstance().getReference("users/${user.uid}")
+            val databaseReference = FirebaseDatabase.getInstance().getReference("/users/${user.uid}")
             databaseReference.setValue(userInfo)
                 .addOnFailureListener { e ->
                     _registerState.update {
@@ -91,12 +92,12 @@ class RegisterFragmentViewModel @Inject constructor(
         }
     }
 
-    private fun validateForm(username: String, email: String, password: String) {
+    private fun validateForm(username: String, email: String, password: String, repeatPassword: String) {
         val isEmailValid = validator.emailValidator(email)
         val isPasswordValid = validator.passwordValidator(password)
         val isUsernameValid = validator.usernameValidator(username)
-
-        val areFieldsValid = listOf(isEmailValid, isPasswordValid, isUsernameValid).all { it }
+        val doPasswordsMatch = validator.passwordsMatchValidator(password, repeatPassword)
+        val areFieldsValid = listOf(isEmailValid, isPasswordValid, isUsernameValid, doPasswordsMatch).all { it }
 
         if (!areFieldsValid) {
             updateErrorMessage(message = "Fields are not valid!")

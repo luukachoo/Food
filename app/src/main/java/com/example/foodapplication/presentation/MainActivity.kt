@@ -2,6 +2,7 @@ package com.example.foodapplication.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.foodapplication.R
 import com.example.foodapplication.databinding.ActivityMainBinding
 import com.example.foodapplication.presentation.screen.containers.AuthFragment
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
+        installSplashScreen()
         setContentView(binding.root)
         checkAuthenticationStatus()
     }

@@ -95,9 +95,6 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
-    // Shimmer
-    implementation("com.facebook.shimmer:shimmer:0.5.0")
-
     // Room
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
@@ -106,6 +103,9 @@ dependencies {
     //noinspection KaptUsageInsteadOfKsp
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
+
+    // Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }
 
 kapt {

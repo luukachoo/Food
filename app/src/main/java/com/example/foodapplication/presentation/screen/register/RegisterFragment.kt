@@ -59,7 +59,8 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
             RegisterFragmentEvents.Register(
                 username = binding.etUsername.text.toString(),
                 email = binding.etEmail.text.toString(),
-                password = binding.etPassword.text.toString()
+                password = binding.etPassword.text.toString(),
+                repeatPassword = binding.etRetypePassword.text.toString()
             )
         )
     }
@@ -72,7 +73,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(FragmentRegisterB
             viewModel.onEvent(RegisterFragmentEvents.ResetErrorMessage)
         }
     }
-
 
     private fun handleNavigationEvents(event: RegisterNavigationEvents) {
         when (event) {

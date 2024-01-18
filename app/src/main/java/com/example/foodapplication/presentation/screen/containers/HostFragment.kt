@@ -1,5 +1,6 @@
 package com.example.foodapplication.presentation.screen.containers
 
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -38,6 +39,7 @@ class HostFragment : BaseFragment<FragmentHostBinding>(FragmentHostBinding::infl
     override fun init() {
         setUpNavGraph()
         handleNavigationBar()
+        handleBottomNavVisibility()
     }
 
     private fun setUpNavGraph() {
@@ -45,6 +47,16 @@ class HostFragment : BaseFragment<FragmentHostBinding>(FragmentHostBinding::infl
             childFragmentManager.findFragmentById(R.id.nav_host_fragment_main) as NavHostFragment
         navController = navHostFragment.findNavController()
         binding.bottomNavigationView.setupWithNavController(navController)
+    }
+
+    private fun handleBottomNavVisibility() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when(destination.id) {
+                R.id.detailFragment -> binding.bottomNavigationView.isVisible = false
+                R.id.searchFragment -> binding.bottomNavigationView.isVisible = false
+                else -> binding.bottomNavigationView.isVisible = true
+            }
+        }
     }
 
 }
