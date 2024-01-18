@@ -28,7 +28,6 @@ class HomeFragmentRecyclerAdapter :
         }
     }
 
-
     class RecipeDiffUtil : DiffUtil.ItemCallback<SearchedRecipesInfo.SearchedRecipe>() {
         override fun areItemsTheSame(
             oldItem: SearchedRecipesInfo.SearchedRecipe,
