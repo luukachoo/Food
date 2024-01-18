@@ -37,7 +37,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                         binding.tvEmail.text = userInfo?.email
                     }
 
-                    override fun onCancelled(error: DatabaseError): Unit {}
+                    override fun onCancelled(error: DatabaseError) {
+                        binding.root.showSnackbar(error.message)
+                    }
                 })
         }
     }
@@ -47,5 +49,4 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
             FirebaseAuth.getInstance().signOut()
         }
     }
-
 }

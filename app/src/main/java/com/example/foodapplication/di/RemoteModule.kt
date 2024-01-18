@@ -1,6 +1,7 @@
 package com.example.foodapplication.di
 
 import com.example.foodapplication.BuildConfig
+import com.example.foodapplication.data.remote.service.ChatbotService
 import com.example.foodapplication.data.remote.service.RecipeService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -12,6 +13,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -44,4 +46,9 @@ object RemoteModule {
     fun provideRecipeService(retrofit: Retrofit): RecipeService =
         retrofit.create(RecipeService::class.java)
 
+
+    @Provides
+    @Singleton
+    fun provideChatbotService(retrofit: Retrofit): ChatbotService =
+        retrofit.create(ChatbotService::class.java)
 }
