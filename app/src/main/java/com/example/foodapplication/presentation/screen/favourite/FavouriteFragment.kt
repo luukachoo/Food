@@ -33,6 +33,10 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(FragmentFavouri
         favouritesRecyclerAdapter.onItemClick { favRecipe ->
             viewModel.onEvent(FavouriteFragmentEvents.ItemClick(favRecipe.id))
         }
+
+        binding.buttonChatbot.setOnClickListener {
+            handleNavigationEvents(FavouriteNavigationEvents.NavigateToChatbot)
+        }
     }
 
     override fun observers() {
@@ -70,6 +74,9 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(FragmentFavouri
         when (event) {
             is FavouriteNavigationEvents.NavigateToDetails -> findNavController().navigate(
                 FavouriteFragmentDirections.favouritesFragmentToDetailsFragment(event.id)
+            )
+            is FavouriteNavigationEvents.NavigateToChatbot -> findNavController().navigate(
+                FavouriteFragmentDirections.actionFavouriteFragmentToChatbotFragment()
             )
         }
     }

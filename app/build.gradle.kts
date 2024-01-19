@@ -38,11 +38,11 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://api.spoonacular.com/recipes/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.spoonacular.com/\"")
         }
 
         release {
-            buildConfigField("String", "BASE_URL", "\"https://api.spoonacular.com/recipes/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.spoonacular.com/\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),

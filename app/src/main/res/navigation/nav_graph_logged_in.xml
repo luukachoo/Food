@@ -65,6 +65,9 @@
             <action
                 android:id="@+id/favouritesFragment_to_detailsFragment"
                 app:destination="@id/detailFragment" />
+            <action
+                android:id="@+id/action_favouriteFragment_to_chatbotFragment"
+                app:destination="@id/chatbotFragment" />
         </fragment>
 
         <fragment
@@ -78,6 +81,12 @@
                 app:argType="integer" />
 
         </fragment>
+
+        <fragment
+            android:id="@+id/chatbotFragment"
+            android:name="com.example.foodapplication.presentation.screen.chatbot.ChatBotFragment"
+            android:label="fragment_chatbot"
+            tools:layout="@layout/fragment_chat_bot" />
     </navigation>
 
     <fragment

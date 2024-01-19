@@ -33,8 +33,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val userInfo = snapshot.getValue(UserInfo::class.java)
-                        binding.tvUsername.text = userInfo?.username
-                        binding.tvEmail.text = userInfo?.email
+                        binding.tvUsername.text = userInfo!!.username
+                        binding.tvEmail.text = userInfo.email
                     }
 
                     override fun onCancelled(error: DatabaseError) {

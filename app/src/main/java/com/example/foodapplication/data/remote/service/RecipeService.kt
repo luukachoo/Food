@@ -10,11 +10,11 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface RecipeService {
-    @GET("complexSearch")
+    @GET("recipes/complexSearch")
     @Headers("X-Api-Key: ${ApiKey.KEY}")
     suspend fun getRecipes(@Query("titleMatch") titleMatch: String? = null): Response<SearchedRecipesInfoDto>
 
-    @GET("{id}/information")
+    @GET("recipes/{id}/information")
     @Headers("X-Api-Key: ${ApiKey.KEY}")
     suspend fun getDetailsRecipe(@Path("id") id: Int): Response<DetailedRecipeInfoDto>
 

@@ -49,12 +49,13 @@ class HostFragment : BaseFragment<FragmentHostBinding>(FragmentHostBinding::infl
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
-    private fun handleBottomNavVisibility() {
+    private fun handleBottomNavVisibility()= with(binding) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when(destination.id) {
-                R.id.detailFragment -> binding.bottomNavigationView.isVisible = false
-                R.id.searchFragment -> binding.bottomNavigationView.isVisible = false
-                else -> binding.bottomNavigationView.isVisible = true
+                R.id.detailFragment -> bottomNavigationView.isVisible = false
+                R.id.searchFragment -> bottomNavigationView.isVisible = false
+                R.id.chatbotFragment -> bottomNavigationView.isVisible = false
+                else -> bottomNavigationView.isVisible = true
             }
         }
     }

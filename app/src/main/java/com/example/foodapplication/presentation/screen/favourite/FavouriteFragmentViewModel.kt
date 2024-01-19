@@ -32,7 +32,6 @@ class FavouriteFragmentViewModel @Inject constructor(private val favouriteUseCas
                 is FavouriteFragmentEvents.ItemClick -> updateNavigationEvent(
                     FavouriteNavigationEvents.NavigateToDetails(event.id)
                 )
-
                 is FavouriteFragmentEvents.SlideToDelete -> deleteRecipeByTitle(event.title)
             }
         }
