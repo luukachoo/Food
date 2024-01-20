@@ -12,7 +12,6 @@ import com.example.foodapplication.presentation.common.helper.Listener
 import com.example.foodapplication.presentation.common.helper.Observer
 import com.example.foodapplication.presentation.event.chatbot.ChatBotFragmentEvent
 import com.example.foodapplication.presentation.model.Message
-import com.example.foodapplication.presentation.state.chatbot.ChatbotViewState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -50,7 +49,7 @@ class ChatBotFragment : BaseFragment<FragmentChatBotBinding>(FragmentChatBotBind
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.chatbotAnswer.collect { answer ->
-                    addToRecyclerView(
+                    addMessageToRecyclerView(
                         Message(
                             id = chatRecyclerAdapter.currentList.size + 1,
                             text = answer.answerText ?: "No information :((",
@@ -65,7 +64,7 @@ class ChatBotFragment : BaseFragment<FragmentChatBotBinding>(FragmentChatBotBind
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.chatbotSendMessage.collect { userMessage ->
-                    addToRecyclerView(
+                    addMessageToRecyclerView(
                         Message(
                             id = chatRecyclerAdapter.currentList.size + 1,
                             text = userMessage.text,
@@ -77,7 +76,7 @@ class ChatBotFragment : BaseFragment<FragmentChatBotBinding>(FragmentChatBotBind
         }
     }
 
-    private fun addToRecyclerView(message: Message) {
+    private fun addMessageToRecyclerView(message: Message) {
         val currentMessages = mutableListOf<Message>()
         currentMessages.apply {
             addAll(chatRecyclerAdapter.currentList)

@@ -13,7 +13,7 @@ import javax.inject.Inject
 class ChatbotRepositoryImpl @Inject constructor(
     private val service: ChatbotService,
     private val responseHandler: ResponseHandler
-): ChatbotRepository {
+) : ChatbotRepository {
     override suspend fun getAnswer(text: String): Flow<ResourceApi<GetChatbotAnswer>> {
         return responseHandler.handleApiCall {
             service.getChatbotAnswer(text)

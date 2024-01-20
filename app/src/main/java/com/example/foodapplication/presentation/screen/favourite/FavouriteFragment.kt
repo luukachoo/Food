@@ -75,6 +75,7 @@ class FavouriteFragment : BaseFragment<FragmentFavouriteBinding>(FragmentFavouri
             is FavouriteNavigationEvents.NavigateToDetails -> findNavController().navigate(
                 FavouriteFragmentDirections.favouritesFragmentToDetailsFragment(event.id)
             )
+
             is FavouriteNavigationEvents.NavigateToChatbot -> findNavController().navigate(
                 FavouriteFragmentDirections.actionFavouriteFragmentToChatbotFragment()
             )

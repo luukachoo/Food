@@ -1,5 +1,6 @@
 package com.example.foodapplication.presentation.screen.detail
 
+import android.text.Html
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
@@ -35,10 +36,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         observers()
         listeners()
         bindRecyclerView()
-
-
         viewModel.onEvent(DetailFragmentEvent.FetchRecipe(userId))
-
     }
 
     override fun listeners() {
@@ -72,7 +70,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
             binding.apply {
                 image = state.recipe.image.toString()
                 tvTitle.text = state.recipe.title
-                tvSummary.text = state.recipe.summary
+                tvSummary.text = Html.fromHtml(state.recipe.summary, 1)
                 tvLicence.text = state.recipe.license
                 Glide.with(binding.root).load(it.image).into(binding.ivRecipePhoto)
             }
@@ -112,5 +110,4 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         title = binding.tvTitle.text.toString(),
         image = image
     )
-
 }

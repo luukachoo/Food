@@ -1,5 +1,5 @@
 package com.example.foodapplication.presentation.model
 
-class ChatbotAnswer (
+class ChatbotAnswer(
     val answerText: String?
 )

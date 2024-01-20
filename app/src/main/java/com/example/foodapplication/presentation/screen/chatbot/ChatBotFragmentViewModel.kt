@@ -1,6 +1,5 @@
 package com.example.foodapplication.presentation.screen.chatbot
 
-import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodapplication.data.common.ResourceApi
@@ -9,11 +8,8 @@ import com.example.foodapplication.presentation.event.chatbot.ChatBotFragmentEve
 import com.example.foodapplication.presentation.mapper.toPresentation
 import com.example.foodapplication.presentation.model.ChatbotAnswer
 import com.example.foodapplication.presentation.model.Message
-import com.example.foodapplication.presentation.state.chatbot.ChatbotViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

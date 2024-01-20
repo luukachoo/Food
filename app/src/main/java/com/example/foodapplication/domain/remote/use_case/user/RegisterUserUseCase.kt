@@ -8,7 +8,11 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class RegisterUserUseCase @Inject constructor(private val repository: AuthRepository) {
-    suspend operator fun invoke(email: String, password: String, userInfo: UserInfo): Flow<Resource<FirebaseUser>> {
+    suspend operator fun invoke(
+        email: String,
+        password: String,
+        userInfo: UserInfo
+    ): Flow<Resource<FirebaseUser>> {
         return repository.register(email = email, password = password, userInfo = userInfo)
     }
 }

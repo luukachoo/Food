@@ -49,9 +49,9 @@ class HostFragment : BaseFragment<FragmentHostBinding>(FragmentHostBinding::infl
         binding.bottomNavigationView.setupWithNavController(navController)
     }
 
-    private fun handleBottomNavVisibility()= with(binding) {
+    private fun handleBottomNavVisibility() = with(binding) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when(destination.id) {
+            when (destination.id) {
                 R.id.detailFragment -> bottomNavigationView.isVisible = false
                 R.id.searchFragment -> bottomNavigationView.isVisible = false
                 R.id.chatbotFragment -> bottomNavigationView.isVisible = false

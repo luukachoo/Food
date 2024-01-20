@@ -14,7 +14,11 @@ class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val handleFirebaseResponse: HandleFirebaseResponse
 ) : AuthRepository {
-    override suspend fun register(email: String, password: String, userInfo: UserInfo): Flow<Resource<FirebaseUser>> {
+    override suspend fun register(
+        email: String,
+        password: String,
+        userInfo: UserInfo
+    ): Flow<Resource<FirebaseUser>> {
         return handleFirebaseResponse.safeApiCall {
             val authResult = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
             val firebaseUser = authResult.user

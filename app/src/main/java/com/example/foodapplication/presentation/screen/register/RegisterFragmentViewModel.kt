@@ -46,7 +46,12 @@ class RegisterFragmentViewModel @Inject constructor(
         }
     }
 
-    private fun register(username: String, email: String, password: String, userInfo: UserInfo = UserInfo()) =
+    private fun register(
+        username: String,
+        email: String,
+        password: String,
+        userInfo: UserInfo = UserInfo()
+    ) =
         viewModelScope.launch {
             _registerState.update { it.copy(isLoading = true) }
             userUseCase.register(email, password, userInfo).collect { resource ->
@@ -80,7 +85,8 @@ class RegisterFragmentViewModel @Inject constructor(
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
             val userInfo = UserInfo(username, email, password)
-            val databaseReference = FirebaseDatabase.getInstance().getReference("/users/${user.uid}")
+            val databaseReference =
+                FirebaseDatabase.getInstance().getReference("/users/${user.uid}")
             databaseReference.setValue(userInfo)
                 .addOnFailureListener { e ->
                     _registerState.update {
@@ -92,12 +98,18 @@ class RegisterFragmentViewModel @Inject constructor(
         }
     }
 
-    private fun validateForm(username: String, email: String, password: String, repeatPassword: String) {
+    private fun validateForm(
+        username: String,
+        email: String,
+        password: String,
+        repeatPassword: String
+    ) {
         val isEmailValid = validator.emailValidator(email)
         val isPasswordValid = validator.passwordValidator(password)
         val isUsernameValid = validator.usernameValidator(username)
         val doPasswordsMatch = validator.passwordsMatchValidator(password, repeatPassword)
-        val areFieldsValid = listOf(isEmailValid, isPasswordValid, isUsernameValid, doPasswordsMatch).all { it }
+        val areFieldsValid =
+            listOf(isEmailValid, isPasswordValid, isUsernameValid, doPasswordsMatch).all { it }
 
         if (!areFieldsValid) {
             updateErrorMessage(message = "Fields are not valid!")

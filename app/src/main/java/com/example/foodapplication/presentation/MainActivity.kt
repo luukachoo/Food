@@ -3,10 +3,9 @@ package com.example.foodapplication.presentation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.fragment.NavHostFragment
 import com.example.foodapplication.R
 import com.example.foodapplication.databinding.ActivityMainBinding
-import com.example.foodapplication.presentation.screen.containers.AuthFragment
-import com.example.foodapplication.presentation.screen.containers.HostFragment
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,23 +27,15 @@ class MainActivity : AppCompatActivity() {
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
 
-        if (currentUser == null) {
-            showAuthFragment()
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        if (currentUser != null) {
+            navController.navigate(R.id.hostFragment)
         } else {
-            showUserFragment()
+            navController.navigate(R.id.loginFragment)
         }
-    }
-
-    private fun showAuthFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, AuthFragment())
-            .commit()
-    }
-
-    private fun showUserFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, HostFragment())
-            .commit()
     }
 
     override fun onDestroy() {
