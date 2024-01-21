@@ -13,7 +13,7 @@
     <string name="username">username</string>
     <string name="retype_password">re-type password</string>
     <string name="hint_email">example@gmail.com</string>
-    <string name="hint_username">jemali1</string>
+    <string name="hint_username">example</string>
     <string name="hint_password">*******</string>
     <string name="profile">Profile</string>
     <string name="log_out">Log Out</string>
