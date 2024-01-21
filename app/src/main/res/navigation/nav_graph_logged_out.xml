@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.foodapplication.presentation.screen.register.RegisterFragment"
+        android:name="com.example.food.presentation.screen.register.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.foodapplication.presentation.screen.log_in.LoginFragment"
+        android:name="com.example.food.presentation.screen.log_in.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
@@ -39,10 +39,17 @@
             app:popExitAnim="@android:anim/fade_out"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/hostFragment"
-        android:name="com.example.foodapplication.presentation.screen.containers.HostFragment"
+        android:name="com.example.food.presentation.screen.containers.HostFragment"
         android:label="fragment_host"
         tools:layout="@layout/fragment_host">
         <action
@@ -55,4 +62,9 @@
             app:popUpTo="@id/hostFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.food.presentation.screen.forgot_password.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
 </navigation>

@@ -36,13 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:background="@drawable/custom_button"
         android:backgroundTint="@color/orange"
         android:contentDescription="@string/chatbot"
         android:padding="10dp"
         android:src="@drawable/ic_chat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/white"
         app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

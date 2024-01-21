@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food Application</string>
+    <string name="app_name">Food</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email">email</string>
@@ -31,4 +31,6 @@
     <string name="assistant">Assistant</string>
     <string name="message">Message</string>
     <string name="chatbot">chatbot</string>
+    <string name="forgot_password_text">Please enter your email</string>
+    <string name="send">Send</string>
 </resources>

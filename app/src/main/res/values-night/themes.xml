@@ -1,7 +1,16 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.FoodApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Primary color -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/backgroundBlack</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary color. -->
+        <item name="colorSecondary">@color/orange</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="android:statusBarColor">@color/backgroundBlack</item>
     </style>
 </resources>

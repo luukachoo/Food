@@ -58,27 +58,27 @@
         tools:text="jemalkakauridze@gmail.com" />
 
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonLogOut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="50dp"
-        android:background="@drawable/custom_button"
         android:backgroundTint="@color/white"
-        android:drawableStart="@drawable/ic_log_out"
-        android:drawableEnd="@drawable/ic_arrow"
+        android:drawableEnd="@drawable/ic_log_out"
         android:fontFamily="@font/sen"
-        android:gravity="center"
+        android:gravity="start|center"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:text="@string/log_out"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="15sp"
+        app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+        app:rippleColor="@color/orange" />
 
     <ProgressBar
         android:id="@+id/progressBar"

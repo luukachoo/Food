@@ -1,15 +1,16 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.App" parent="Theme.SplashScreen">
+    <style name="Base.Theme.FoodApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary color -->
         <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/backgroundBlack</item>
         <item name="colorOnPrimary">@color/white</item>
 
-        <item name="android:statusBarColor">@color/white</item>
+        <!-- Secondary color. -->
+        <item name="colorSecondary">@color/orange</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
 
-        <item name="windowSplashScreenBackground">#FFFFFF</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_logo</item>
-        <item name="postSplashScreenTheme">@style/Theme.FoodApplication</item>
+        <item name="android:statusBarColor">@color/backgroundBlack</item>
     </style>
-
-    <style name="Theme.FoodApplication" parent="Base.Theme.FoodApplication" />
 </resources>

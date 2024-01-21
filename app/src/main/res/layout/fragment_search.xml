@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/backgroundBlack"
     tools:context=".presentation.screen.search.SearchFragment">
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -43,6 +43,7 @@
         android:contentDescription="@string/search"
         android:foregroundTint="@color/white"
         android:src="@drawable/ic_search"
+        app:rippleColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/etSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/etSearch"
