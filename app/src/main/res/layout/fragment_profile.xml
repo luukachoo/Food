@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="50dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/tvGrey"
         android:drawableEnd="@drawable/ic_log_out"
         android:fontFamily="@font/sen"
         android:gravity="start|center"
