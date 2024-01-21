@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:layout_marginHorizontal="10dp"
-    android:backgroundTint="@color/white"
+    android:backgroundTint="@color/tvGrey"
     app:cardCornerRadius="20dp"
     app:cardElevation="20dp">
 
@@ -35,7 +35,7 @@
             android:layout_marginHorizontal="12dp"
             android:fontFamily="@font/sen_bold"
             android:maxLines="1"
-            android:textColor="@color/tvGrey"
+            android:textColor="@color/etTextColorGrey"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
